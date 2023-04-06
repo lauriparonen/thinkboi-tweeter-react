@@ -63,14 +63,12 @@ function TweetInputForm() {
             color="primary"
           />
         }
-        label={is140 ? '140 Characters' : '280 Characters'}
+        label={is140 ? '140 characters' : '280 characters'}
       />
       <form className={classes.form}>
         <TextField
           className={classes.textField}
           id="outlined-multiline-static"
-        
-          /* set the outline color to white */
           InputLabelProps={{ style: { color: 'white', fontStyle: 'italic' } }}
           label="Tweet" 
           multiline
@@ -81,6 +79,7 @@ function TweetInputForm() {
           inputProps={{ maxLength: maxLength }}
           InputProps={{ style: { color: 'white' } }}
           helperText={`${tweet.length}/${maxLength}`}
+          FormHelperTextProps={{ style: { color: 'white' } }}
 
         />
         
