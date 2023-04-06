@@ -52,11 +52,10 @@ function MenuBar() {
           <Typography variant="h6" className={classes.title}>
             thinkboi tweeter
           </Typography>
-          <Button color="inherit">Login</Button>
           </Toolbar>
           </AppBar>
           </div>
           );
       }
-      
+
 export default MenuBar;
