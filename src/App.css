@@ -37,3 +37,14 @@
     transform: rotate(0deg);
   }
 }
+
+/* make all text white */
+body {
+  color: white;
+}
+
+.textField {
+  background-color: #000000;
+  color: white;
+}
+
