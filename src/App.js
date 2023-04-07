@@ -3,9 +3,24 @@ import react from 'react';
 import './App.css';
 import TweetInputForm from './TweetInputForm';
 import MenuBar from './MenuBar';
+import { makeStyles } from '@material-ui/core/styles';
+import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#b4d9ef',
+    },
+    secondary: {
+      main: '#b4d9ef',
+    },
+  },
+});
 
 function App() {
   return (
+    <MuiThemeProvider theme={theme}>
     <div className="App">
       <TweetInputForm /> 
       <MenuBar /> 
@@ -27,6 +42,7 @@ function App() {
         </a>
       </header>
     </div>
+    </MuiThemeProvider>
   );
 }
 
