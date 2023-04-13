@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import AboutModal from './AboutModal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,21 +19,37 @@ const useStyles = makeStyles((theme) => ({
 function MenuBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [aboutModalOpen, setAboutModalOpen] = useState(false);
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
-  }
+  };
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleOpenAboutModal = () => {
+    setAboutModalOpen(true);
+    handleClose();
+  };
+
+  const handleCloseAboutModal = () => {
+    setAboutModalOpen(false);
   };
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleMenu}>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+            onClick={handleMenu}
+          >
             <MenuIcon />
           </IconButton>
           <Menu
@@ -47,15 +63,19 @@ function MenuBar() {
             <MenuItem onClick={handleClose}>API Keys</MenuItem>
             <MenuItem onClick={handleClose}>Drafts</MenuItem>
             <MenuItem onClick={handleClose}>Settings</MenuItem>
-            <MenuItem onClick={handleClose}>About</MenuItem>
+            <MenuItem onClick={handleOpenAboutModal}>About</MenuItem>
           </Menu>
           <Typography variant="h6" className={classes.title}>
             thinkboi tweeter
           </Typography>
-          </Toolbar>
-          </AppBar>
-          </div>
-          );
-      }
+        </Toolbar>
+      </AppBar>
+      <AboutModal
+        open={aboutModalOpen}
+        onClose={handleCloseAboutModal}
+      />
+    </div>
+  );
+}
 
 export default MenuBar;

@@ -80,25 +80,26 @@ function TweetInputForm() {
       />
       <form className={classes.form}>
         <div className={classes.inputContainer}>
-          <TextField
-            className={classes.textField}
-            id="outlined-multiline-static"
-            InputLabelProps={{ style: { color: 'white', fontStyle: 'italic' } }}
-            label="what's on your mind?" 
-            multiline
-            rows={8}
-            variant="outlined"
-            value={tweet}
-            onChange={handleTweetChange}
-            inputProps={{ maxLength: maxLength }}
-            InputProps={{ style: { color: 'white' } }}
-            helperText={`${tweet.length}/${maxLength}`}
-            FormHelperTextProps={{ style: { color: 'white' } }}
-          />
+        <TextField
+          className={classes.textField}
+          id="outlined-multiline-static"
+          InputLabelProps={{ style: { color: 'white', fontStyle: 'italic' } }}
+          label="what's on your mind?" 
+          multiline
+          rows={8}
+          variant="outlined"
+          value={tweet}
+          onChange={handleTweetChange}
+          inputProps={{ maxLength: maxLength }}
+          InputProps={{ style: { color: 'white' } }}
+          helperText={`${tweet.length}/${maxLength}`}
+          FormHelperTextProps={{ style: { color: 'white' } }}
+        />
+
           <div className={classes.buttonContainer}>
             <Button
               style={{backgroundColor: 'black', color: 'white'}}
-              className={classes.button}
+              className={classes.sendButton}
               variant="contained"
               color="primary"
               disabled={tweet.length === 0 || tweet.length > maxLength}
@@ -106,9 +107,10 @@ function TweetInputForm() {
               Send Tweet
             </Button>
             <Button
-              className={classes.button}
+              className={classes.saveButton}
               variant="contained"
               color="primary"
+              // disabled={tweet.length === 0}
             >
               Save Draft
             </Button>

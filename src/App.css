@@ -44,9 +44,17 @@ body {
 }
 
 .textField {
-  background-color: #000000;
+  background-color: #333333;
   color: white;
 }
 
+.sendButton {
+  background-color: #333333;
+  color: white;
+}
 
+.saveButton {
+  background-color: #333333;
+  color: white;
+}
 

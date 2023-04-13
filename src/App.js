@@ -1,22 +1,16 @@
 import logoblack from './logoblack.svg';
 import react from 'react';
 import './App.css';
-import TweetInputForm from './TweetInputForm';
-import MenuBar from './MenuBar';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 
+import TweetInputForm from './TweetInputForm';
+import MenuBar from './MenuBar';
+import theme from './Theme';
+import AboutModal from './AboutModal';
+// import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#b4d9ef',
-    },
-    secondary: {
-      main: '#b4d9ef',
-    },
-  },
-});
 
 function App() {
   return (
