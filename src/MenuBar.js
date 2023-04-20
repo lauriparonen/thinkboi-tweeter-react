@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AboutModal from './AboutModal';
+import InstructionsModal from './InstructionsModal';
+import DraftsModal from './DraftsModal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +22,8 @@ function MenuBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [aboutModalOpen, setAboutModalOpen] = useState(false);
+  const [instructionsModalOpen, setInstructionsModalOpen] = useState(false);
+  const [draftsModalOpen, setDraftsModalOpen] = useState(false);
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {
@@ -37,6 +41,20 @@ function MenuBar() {
 
   const handleCloseAboutModal = () => {
     setAboutModalOpen(false);
+  };
+
+  const handleOpenInstructionsModal = () => {
+    setInstructionsModalOpen(true);
+    handleClose();
+  };
+
+  const handleCloseInstructionsModal = () => {
+    setInstructionsModalOpen(false);
+  };
+
+  const handleOpenDraftsModal = () => {
+    setDraftsModalOpen(true);
+    handleClose();
   };
 
   return (
@@ -61,8 +79,8 @@ function MenuBar() {
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>API Keys</MenuItem>
-            <MenuItem onClick={handleClose}>Drafts</MenuItem>
-            <MenuItem onClick={handleClose}>Settings</MenuItem>
+            <MenuItem onClick={() => {handleClose(); handleOpenDraftsModal()}}>Drafts</MenuItem>
+            <MenuItem onClick={handleOpenInstructionsModal}>Instructions</MenuItem>
             <MenuItem onClick={handleOpenAboutModal}>About</MenuItem>
           </Menu>
           <Typography variant="h6" className={classes.title}>
@@ -73,6 +91,14 @@ function MenuBar() {
       <AboutModal
         open={aboutModalOpen}
         onClose={handleCloseAboutModal}
+      />
+      <InstructionsModal
+        open={instructionsModalOpen}
+        onClose={handleCloseInstructionsModal}
+      />
+      <DraftsModal
+        open={draftsModalOpen}
+        onClose={() => {setDraftsModalOpen(false)}}
       />
     </div>
   );

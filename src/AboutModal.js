@@ -14,8 +14,19 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    borderRadius: '10px', // added border radius
+    transition: 'all 1s ease-out !important', // added transition
+    '-webkit-transition': 'all 1s ease-out !important', // added for Safari
+  },
+  '@global': {
+    '.MuiBackdrop-root': {
+      opacity: '0.5',
+      transition: 'all 1s ease-out !important', // added transition
+      '-webkit-transition': 'all 1s ease-out !important', // added for Safari
+    },
   },
 }));
+
 
 function AboutModal(props) {
   const classes = useStyles();
@@ -29,10 +40,15 @@ function AboutModal(props) {
       <div className={classes.paper}>
         <Typography variant="h6">About thinkboi tweeter</Typography>
         <Typography variant="body1">
-          This is a Twitter client that allows you to post tweets. <br />
-          You can also manage your API keys and save drafts for later. <br />
+          This is a Twitter client that allows you to post tweets
+          without opening the Twitter homepage. <br />
+          You can also save drafts for later. <br />
           <br />
-          Happy tweeting!
+          View the Instructions-tab for more information on setting up your API keys. <br />
+          <br />
+          Happy tweeting!<br />
+          <br />
+          C 2023 Lauri Paronen
         </Typography>
       </div>
     </Modal>

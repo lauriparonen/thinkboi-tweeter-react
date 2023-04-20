@@ -58,3 +58,22 @@ body {
   color: white;
 }
 
+.modal {
+  background-color: #333333;
+  color: white;
+  /* smooth out the edges */
+  border-radius: 5px;
+  
+}
+
+li {
+  background-color: #afe2e0;
+  color: rgb(0, 0, 0);
+  /* smooth out the edges */
+  border-radius: 5px;
+  /* add some padding */
+  padding: 10px;
+  /* add some margin */
+  margin: 10px;
+  list-style: none;
+}

@@ -4,6 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import DraftsModal from './DraftsModal';
+import { setIsDraftsModalOpen } from "./DraftsModal";
+
 
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 
@@ -49,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TweetInputForm() {
+function TweetInputForm({  setDrafts, saveDraft }) {
   const classes = useStyles();
 
   const [tweet, setTweet] = useState('');
@@ -64,6 +67,15 @@ function TweetInputForm() {
   };
 
   const maxLength = is140 ? 140 : 280;
+
+  const handleSaveDraft = () => {
+    let storedDrafts = JSON.parse(localStorage.getItem('drafts')) || [];
+    storedDrafts.push(tweet);
+    localStorage.setItem('drafts', JSON.stringify(storedDrafts));
+    setDrafts(storedDrafts);
+    setIsDraftsModalOpen(true);
+  }
+  
 
   return (
     <div className={classes.root}>
@@ -110,6 +122,7 @@ function TweetInputForm() {
               className={classes.saveButton}
               variant="contained"
               color="primary"
+              onClick={handleSaveDraft}
               // disabled={tweet.length === 0}
             >
               Save Draft
@@ -117,7 +130,6 @@ function TweetInputForm() {
           </div>
         </div>
       </form>
-
     </div>
   );
 }
