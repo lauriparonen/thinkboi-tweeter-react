@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# thinkboi tweeter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web interface for sending short tweets without needing to open the Twitter newsfeed.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
