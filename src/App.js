@@ -31,13 +31,13 @@ function App() {
     <MuiThemeProvider theme={theme}>
     
     <div className="App">
-      
+    <MenuBar /> 
       <TweetInputForm 
       saveDraft={handleSaveDraft}
       setDrafts={setDrafts}
       setIsDraftsModalOpen={setIsDraftsModalOpen}
       /> 
-      <MenuBar /> 
+      
       
       <header className="App-header">
         <div className="App-logo">
