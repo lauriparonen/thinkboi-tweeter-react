@@ -4,8 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import DraftsModal from './DraftsModal';
-import { setIsDraftsModalOpen } from "./DraftsModal";
+import DraftsModal, { setIsDraftsModalOpen } from './DraftsModal';
 
 
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';

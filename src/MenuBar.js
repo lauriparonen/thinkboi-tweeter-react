@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem } from '@material-ui/core';
@@ -5,6 +6,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AboutModal from './AboutModal';
 import InstructionsModal from './InstructionsModal';
 import DraftsModal from './DraftsModal';
+import ApiKeysModal from './ApiKeysModal';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +60,18 @@ function MenuBar() {
     handleClose();
   };
 
+const handleCloseApiKeysModal = () => {
+  setApiKeysModalOpen(false);
+};
+
+
+  const [apiKeysModalOpen, setApiKeysModalOpen] = useState(false);
+
+  const handleOpenApiKeysModal = () => {
+    setApiKeysModalOpen(true);
+    handleClose();
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -78,7 +93,7 @@ function MenuBar() {
             open={open}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>API Keys</MenuItem>
+            <MenuItem onClick={handleOpenApiKeysModal}>API Keys</MenuItem>
             <MenuItem onClick={() => {handleClose(); handleOpenDraftsModal()}}>Drafts</MenuItem>
             <MenuItem onClick={handleOpenInstructionsModal}>Instructions</MenuItem>
             <MenuItem onClick={handleOpenAboutModal}>About</MenuItem>
@@ -100,8 +115,15 @@ function MenuBar() {
         open={draftsModalOpen}
         onClose={() => {setDraftsModalOpen(false)}}
       />
+      <ApiKeysModal
+      open={apiKeysModalOpen}
+      handleClose={handleCloseApiKeysModal}
+      onClose={() => {setApiKeysModalOpen(false)}}
+      />
+      
     </div>
   );
 }
 
 export default MenuBar;
+

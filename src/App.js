@@ -12,6 +12,8 @@ import theme from './Theme';
 import AboutModal from './AboutModal';
 import InstructionsModal from './InstructionsModal';
 import DraftsModal from './DraftsModal';
+import ApiKeysForm from './ApiKeysForm';
+import ApiKeysModal from './ApiKeysModal';
 // import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
@@ -23,9 +25,13 @@ function App() {
     setDrafts([...drafts, text]);
   };
 
+  // TODO: send tweet to backend
+
   return (
     <MuiThemeProvider theme={theme}>
+    
     <div className="App">
+      
       <TweetInputForm 
       saveDraft={handleSaveDraft}
       setDrafts={setDrafts}
@@ -38,8 +44,10 @@ function App() {
           <img src={logoblack} className="App-logo" alt="logoblack" />
         </div>
         <p>
-          coming soon...
+          thinkboi tweeter
         </p>
+        
+
         <a
           className="App-link"
           href="https://github.com/lauriparonen/thinkboi-tweeter-react"
@@ -48,6 +56,16 @@ function App() {
         >
           github
         </a>
+        <p style={{fontSize: '20px'}}>
+        ©️ <a
+          className="App-link"
+          href="https://github.com/lauriparonen"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          lauri paronen
+        </a>
+        </p>
       </header>
     </div>
     </MuiThemeProvider>

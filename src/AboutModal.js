@@ -44,6 +44,10 @@ function AboutModal(props) {
           without opening the Twitter homepage. <br />
           You can also save drafts for later. <br />
           <br />
+          The intention behind this app is that it is constrain 
+          which drives creativity and impact; the more you have to think about
+          how to cut what you want to say, the more potent your
+          message will be. <br />
           View the Instructions-tab for more information on setting up your API keys. <br />
           <br />
           Happy tweeting!<br />
